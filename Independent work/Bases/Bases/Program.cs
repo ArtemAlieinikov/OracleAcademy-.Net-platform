@@ -12,42 +12,38 @@ namespace Bases
             Random rnd = new Random();
 
             for (int i = 0; i < testArray.Length; ++i)
-            { 
-                testArray[i] = rnd.Next(0, 300); 
+            {
+                testArray[i] = rnd.Next(0, 300);
             }
 
-            Sort sortObject = new Sort();
-            sortObject.QuickSort(0, testArray.Length - 1, testArray);
+            QuickSort(0, testArray.Length - 1, testArray);
 
-            foreach(int i in testArray)
+            foreach (int i in testArray)
             {
-                Console.WriteLine(i); 
+                Console.WriteLine(i);
             }
         }
-    }
 
-    public class Sort
-    {
-        public void QuickSort(int firstIndex, int lastIndex, int[] array)
+        static void QuickSort(int firstIndex, int lastIndex, int[] array)
         {
             int left = firstIndex;
             int right = lastIndex;
             int midPosotion = (firstIndex + lastIndex) / 2;
 
-            if(left < right)
+            if (left < right)
             {
                 int middleElement = array[midPosotion];
 
-                while(left < right)
+                while (left < right)
                 {
                     while (array[left] < middleElement)
                     {
-                        ++left; 
+                        ++left;
                     }
 
                     while (array[right] > middleElement)
-                    { 
-                        --right; 
+                    {
+                        --right;
                     }
 
                     if (left <= right)
@@ -56,7 +52,7 @@ namespace Bases
                         array[left] = array[right];
                         array[right] = temp;
 
-                        ++left; 
+                        ++left;
                         --right;
                     }
                 }
