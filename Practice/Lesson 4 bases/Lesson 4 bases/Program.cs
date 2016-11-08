@@ -54,7 +54,7 @@ namespace Lesson_4_bases
             }
             else { }
 
-            //Or, also we can write ((number & 1) != 1)
+            //Аlso we can write ((number & 1) != 1)
             return ((number % 2) == 0);
         }
 
