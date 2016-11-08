@@ -21,7 +21,7 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
         public void Print(IGetInfo cuurentDevice)
         {
             Console.Clear();
-            Console.WriteLine(cuurentDevice.GetInfo());
+            this.PrintInfoAboutDevice(cuurentDevice);
             Console.WriteLine();
             Console.WriteLine("Нажмите клавишу для выполнения действия:");
             Console.WriteLine("1 - Включить холодильник");
@@ -33,6 +33,11 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
             Console.WriteLine("7 - Включить лампочку");
             Console.WriteLine("8 - Выключить лампочку");
             Console.WriteLine("9 - Выйти");
+        }
+
+        private void PrintInfoAboutDevice(IGetInfo cuurentDevice)
+        {
+            Console.WriteLine(cuurentDevice.GetInfo());
         }
 
         public void SetKey()
