@@ -17,7 +17,9 @@ namespace Lesson_5_object_model
 
             while(true)
             {
-                fridgeMenu.Print(fridge);
+                fridgeMenu.Clear();
+                fridgeMenu.PrintInfoAboutDevice(fridge);
+                fridgeMenu.Print();
                 fridgeMenu.SetKey();
                 if(fridgeMenu.Key == '1')
                 {
