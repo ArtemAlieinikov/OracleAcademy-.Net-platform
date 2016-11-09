@@ -48,7 +48,6 @@
     <Compile Include="Student.cs" />
     <Compile Include="TelevisionSet.cs" />
     <Compile Include="The emulator of refrigerator\Fridge.cs" />
-    <Compile Include="The emulator of refrigerator\IGetInfo.cs" />
     <Compile Include="The emulator of refrigerator\LightBulb.cs" />
     <Compile Include="The emulator of refrigerator\Menu.cs" />
     <Compile Include="The emulator of refrigerator\ModeWork.cs" />
