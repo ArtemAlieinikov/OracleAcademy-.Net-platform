@@ -10,13 +10,13 @@ namespace Lesson_5_object_model
         и только потом срабатывает конструктор, в этом так же отличительная черта структуры от класса*/
         private string name;
         private int course;
-        private bool IsGrant;
+        private bool isGrant;
 
-        public Student(string name, int course, bool IsGrant)
+        public Student(string name, int course, bool isGrant)
         {
             this.name = name;
             this.course = course;
-            this.IsGrant = IsGrant;
+            this.isGrant = isGrant;
         }
 
         public Student(string name)
