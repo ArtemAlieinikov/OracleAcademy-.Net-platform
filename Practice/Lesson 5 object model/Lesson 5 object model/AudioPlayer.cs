@@ -19,7 +19,7 @@ namespace Lesson_5_object_model
 
             set
             {
-                if((value < 0) || (value > 100))
+                if ((value < 0) || (value > 100))
                 {
                     volume = 0;
                 }
