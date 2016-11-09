@@ -23,6 +23,10 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
                 {
                     currentFridge = value;
                 }
+                else
+                {
+                    throw new FormatException("Incorrect object type");
+                }
             }
         }
 
