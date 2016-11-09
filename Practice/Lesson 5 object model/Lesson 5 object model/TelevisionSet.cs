@@ -14,8 +14,8 @@ namespace Lesson_5_object_model
         }
 
         public void NextChannel()
-        { 
-            if(currentChannel == 100)
+        {
+            if (currentChannel == 100)
             {
                 currentChannel = 1;
             }
@@ -27,7 +27,7 @@ namespace Lesson_5_object_model
 
         public void PreviousChannel()
         {
-            if(currentChannel == 1)
+            if (currentChannel == 1)
             {
                 currentChannel = 100;
             }
@@ -39,7 +39,7 @@ namespace Lesson_5_object_model
 
         public void SetChannelNumber(int number)
         {
-            if((number <= 0) || (number > 100))
+            if ((number <= 0) || (number > 100))
             {
                 throw new FormatException("The number is incorrect");
             }
