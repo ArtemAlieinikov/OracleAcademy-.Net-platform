@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Lesson_5_object_model.The_emulator_of_refrigerator
 {
-    public class Fridge : IGetInfo
+    public class Fridge
     {
         private string model;
         private string brandName;
@@ -24,7 +24,7 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
 
             set
             {
-                if(value is LightBulb)
+                if (value is LightBulb)
                 {
                     bulb = value;
                 }
@@ -46,10 +46,10 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
 
         public void TurnOnFridge()
         {
-            if(isOn == false)
+            if (isOn == false)
             {
-                this.AddGlaciationLevel();
-                this.CheckGlaciation();
+                AddGlaciationLevel();
+                CheckGlaciation();
             }
             else { }
 
@@ -59,28 +59,31 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
 
         private void AddGlaciationLevel()
         {
-            if(frostLevel == FridgeModeWork.Low)
+            if (glaciation != true)
             {
-                glaciationLevel += 5;
-            }
-            else if(frostLevel == FridgeModeWork.Middle)
-            {
-                glaciationLevel += 10;
-            }
-            else
-            {
-                glaciationLevel += 20;
+                if (frostLevel == FridgeModeWork.Low)
+                {
+                    glaciationLevel += 5;
+                }
+                else if (frostLevel == FridgeModeWork.Middle)
+                {
+                    glaciationLevel += 10;
+                }
+                else
+                {
+                    glaciationLevel += 20;
+                }
             }
         }
 
         private void CheckGlaciation()
         {
-            if(glaciationLevel > 100)
+            if (glaciationLevel > 100)
             {
                 glaciationLevel = 101;
                 glaciation = true;
             }
-            else if(glaciationLevel < 0)
+            else if (glaciationLevel < 0)
             {
                 glaciationLevel = 1;
                 glaciation = false;
@@ -89,10 +92,10 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
 
         public void TurnOffFridge()
         {
-            if(isOn == true)
+            if (isOn == true)
             {
-                this.PutDownGlaciationLevel();
-                this.CheckGlaciation();
+                PutDownGlaciationLevel();
+                CheckGlaciation();
             }
             else { }
 
@@ -102,17 +105,20 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
 
         private void PutDownGlaciationLevel()
         {
-            if (frostLevel == FridgeModeWork.Low)
+            if(glaciation != true)
             {
-                glaciationLevel -= 2;
-            }
-            else if (frostLevel == FridgeModeWork.Middle)
-            {
-                glaciationLevel -= 4;
-            }
-            else
-            {
-                glaciationLevel -= 8;
+                if (frostLevel == FridgeModeWork.Low)
+                {
+                    glaciationLevel -= 2;
+                }
+                else if (frostLevel == FridgeModeWork.Middle)
+                {
+                    glaciationLevel -= 4;
+                }
+                else
+                {
+                    glaciationLevel -= 8;
+                }
             }
         }
 
@@ -129,7 +135,7 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
 
         public void TurnOnLight()
         {
-            if(isOn == true)
+            if (isOn == true)
             {
                 Bulb.On();
             }
@@ -143,13 +149,13 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
             }
         }
 
-        public string GetInfo()
+        public override string ToString()
         {
             StringBuilder resultBuilder = new StringBuilder();
 
             resultBuilder.Append("Model: " + model + ", Brand name: " + brandName + ". \n");
 
-            if(this.isOn == true)
+            if (isOn == true)
             {
                 resultBuilder.Append("State: is On, ");
             }
@@ -158,11 +164,11 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
                 resultBuilder.Append("State: is Off, ");
             }
 
-            if(this.frostLevel == FridgeModeWork.Low)
+            if (frostLevel == FridgeModeWork.Low)
             {
                 resultBuilder.Append("Low frost level.\n");
             }
-            else if(this.frostLevel == FridgeModeWork.Middle)
+            else if (frostLevel == FridgeModeWork.Middle)
             {
                 resultBuilder.Append("Middle frost level.\n");
             }
@@ -174,7 +180,7 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
             resultBuilder.Append("Glaciation level - " + glaciationLevel + "%, ");
             resultBuilder.Append("glaciation - " + glaciation + ".\n");
 
-            resultBuilder.Append(Bulb.GetInfo());
+            resultBuilder.Append(Bulb.ToString());
 
             string result = resultBuilder.ToString();
             return result;

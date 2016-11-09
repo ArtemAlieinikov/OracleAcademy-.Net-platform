@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson_5_object_model.The_emulator_of_refrigerator
 {
-    public class LightBulb : IGetInfo
+    public class LightBulb
     {
         private bool state;
 
@@ -23,11 +23,11 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
             state = false;
         }
 
-        public string GetInfo()
+        public override string ToString()
         {
             string state;
 
-            if(this.state == true)
+            if (this.state == true)
             {
                 state = "On";
             }

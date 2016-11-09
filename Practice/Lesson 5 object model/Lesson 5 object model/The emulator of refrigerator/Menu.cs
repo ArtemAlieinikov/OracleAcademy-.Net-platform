@@ -9,6 +9,22 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
     class Menu
     {
         private char key;
+        private Fridge currentFridge;
+
+        public Fridge CurrentFridge
+        {
+            get
+            {
+                return currentFridge;
+            }
+            set
+            {
+                if (value is Fridge)
+                {
+                    currentFridge = value;
+                }
+            }
+        }
 
         public char Key
         {
@@ -16,6 +32,38 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
             {
                 return key;
             }
+        }
+
+        public Menu(Fridge currentFridge)
+        {
+            CurrentFridge = currentFridge;
+        }
+
+        public void Run()
+        {
+            while (true)
+            {
+                Clear();
+                PrintInfoAboutDevice();
+                Print();
+                SetKey();
+                ImplementationOfActions();
+                if (Key == '0')
+                {
+                    Clear();
+                    break;
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            Console.Clear();
+        }
+
+        public void PrintInfoAboutDevice()
+        {
+            Console.WriteLine(CurrentFridge.ToString());
         }
 
         public void Print()
@@ -30,22 +78,48 @@ namespace Lesson_5_object_model.The_emulator_of_refrigerator
             Console.WriteLine("6 - Разморозить холодильник");
             Console.WriteLine("7 - Включить лампочку");
             Console.WriteLine("8 - Выключить лампочку");
-            Console.WriteLine("9 - Выйти");
-        }
-
-        public void PrintInfoAboutDevice(IGetInfo cuurentDevice)
-        {
-            Console.WriteLine(cuurentDevice.GetInfo());
-        }
-
-        public void Clear()
-        {
-            Console.Clear();
+            Console.WriteLine("0 - Выйти");
         }
 
         public void SetKey()
         {
             key = Console.ReadKey().KeyChar;
+        }
+
+        public void ImplementationOfActions()
+        {
+            if (Key == '1')
+            {
+                CurrentFridge.TurnOnFridge();
+            }
+            else if (Key == '2')
+            {
+                CurrentFridge.TurnOffFridge();
+            }
+            else if (Key == '3')
+            {
+                CurrentFridge.SetFrostLevel(FridgeModeWork.Low);
+            }
+            else if (Key == '4')
+            {
+                CurrentFridge.SetFrostLevel(FridgeModeWork.Middle);
+            }
+            else if (Key == '5')
+            {
+                CurrentFridge.SetFrostLevel(FridgeModeWork.High);
+            }
+            else if (Key == '6')
+            {
+                CurrentFridge.Defrost();
+            }
+            else if (Key == '7')
+            {
+                CurrentFridge.TurnOnLight();
+            }
+            else if (Key == '8')
+            {
+                CurrentFridge.TurnOffLight();
+            }
         }
     }
 }
