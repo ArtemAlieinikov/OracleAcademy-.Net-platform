@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson_6_object_model
+namespace Lesson_7_object_model._4_task
 {
-    class Program
+    class Dog : Animal
     {
-        static void Main(string[] args)
+        public override void Bite()
         {
-            
+            Console.WriteLine("Dog {0} bites", Name);
         }
     }
 }

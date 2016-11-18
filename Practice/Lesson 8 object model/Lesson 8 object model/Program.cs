@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson_6_object_model
+namespace Lesson_8_object_model
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
+
         }
     }
 }

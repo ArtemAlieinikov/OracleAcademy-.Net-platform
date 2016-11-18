@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson_6_object_model
+namespace Lesson_7_object_model._1_task
 {
-    class Program
+    class American : Person
     {
-        static void Main(string[] args)
+        public override void SayHello()
         {
-            
+            Console.WriteLine("Hello, guys!");
         }
     }
 }
