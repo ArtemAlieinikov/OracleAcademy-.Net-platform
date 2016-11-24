@@ -10,7 +10,7 @@ namespace Lesson_8_object_model
     {
         static void Main(string[] args)
         {
-
+            
         }
     }
 }
