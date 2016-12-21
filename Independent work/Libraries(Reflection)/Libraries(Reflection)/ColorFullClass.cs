@@ -11,6 +11,8 @@ namespace Libraries_Reflection_
         [PropertyColorAttribute(ConsoleColor.Green)]
         private int GreenProperty { get; set; }
 
+        protected static string SimpeProperty { get; set; }
+
         [PropertyColorAttribute(ConsoleColor.Red)]
         protected string RedProperty { get; set; }
 
@@ -21,7 +23,7 @@ namespace Libraries_Reflection_
         protected internal double CyanProperty { get; set; }
 
         [PropertyColorAttribute(ConsoleColor.Magenta)]
-        public object MagentaProperty { get; set; }
+        public virtual object MagentaProperty { get; set; }
 
         [PropertyColorAttribute(ConsoleColor.Blue)]
         public object BlueProperty { get; set; }
